@@ -58,8 +58,8 @@ steps:
   - task: CopyFilesOverSSH@0
     inputs:
       sshEndpoint: 'webserver-01'
-      sourceFolder: './'
-      contents: 'azure-pipelines.yml'
+      sourceFolder: '/home/vsts/work/1/s/gcs-app/target/rpm/RPMS/noarch/'
+      contents: 'gcs-app-2.8.x-1.noarch.rpm'
       targetFolder: '/home/azureuser'
       readyTimeout: '20000'
 
