@@ -69,8 +69,10 @@ steps:
       sshEndpoint: 'webserver-01'
       runOptions: 'commands'
       commands: |
+        echo ================desintalando================
         sudo systemctl stop gcs-app
         sudo rpm -e gcs-app
+        echo ===============intalando============
         sudo rpm -i gcs-app-2.8.x-1.noarch.rpm
         sudo chown -R gcs-app /usr/share/gcs-app/
         sudo chgrp -R gcs-app /usr/share/gcs-app/
