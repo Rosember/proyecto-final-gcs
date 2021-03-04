@@ -14,29 +14,29 @@ pool:
 steps:
   
   - script: |
-      #  echo displayin system information
-      #  cat /etc/os-release
-      #  echo -----------------------------=============== 
-      #  sudo apt-get install openjdk-11-jdk
-      #  echo ==========fin install java-================
-      #  curl https://downloads.lightbend.com/scala/2.12.10/scala-2.12.10.rpm --output scala-2.12.10.rpm
-      #  echo ==========fin download scala-2.12.10.rpm ==============
-      #  sudo apt-get -y install scala-2.12.10.rpm
-      #  echo ==========fin installa scala-2.12.10.rpm ==============
-      #  curl https://bintray.com/sbt/rpm/rpm | su -c tee /etc/yum.repos.d/bintray-sbt-rpm.repo
-      #  echo ========== fin add repo //bintray.com/sbt/rpm/rpm ==================
-      #  sudo apt-get -y install sbt
-      #  echo ========== fin install sbt ===================
-      #  sudo apt-get install -y which
-      #  echo ========== fin install which ===================
-      #  sudo apt-get install -y yum-utils
-      #  echo ========== fin install yum-utils ===================
-      #  sudo apt-get -y install rpm-build
-      #  echo ========== fin install rpm/build===================
-      #  echo listar directorio actual
-      #  ls -al
-      #  sbt compile
-      #  sbt rpm:packageBin
+        echo displayin system information
+        cat /etc/os-release
+        echo -----------------------------=============== 
+        sudo apt-get install openjdk-11-jdk
+        echo ==========fin install java-================
+        curl https://downloads.lightbend.com/scala/2.12.10/scala-2.12.10.rpm --output scala-2.12.10.rpm
+        echo ==========fin download scala-2.12.10.rpm ==============
+        sudo apt-get -y install scala-2.12.10.rpm
+        echo ==========fin installa scala-2.12.10.rpm ==============
+        curl https://bintray.com/sbt/rpm/rpm | su -c tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+        echo ========== fin add repo //bintray.com/sbt/rpm/rpm ==================
+        sudo apt-get -y install sbt
+        echo ========== fin install sbt ===================
+        sudo apt-get install -y which
+        echo ========== fin install which ===================
+        sudo apt-get install -y yum-utils
+        echo ========== fin install yum-utils ===================
+        sudo apt-get -y install rpm-build
+        echo ========== fin install rpm/build===================
+        echo listar directorio actual
+        ls -al
+        sbt compile
+        sbt rpm:packageBin
       # echo Installing $(caCertificate.secureFilePath) to the trusted CA directory...
       # mkdir -p ~/.ssh
       # cp $(caCertificate.secureFilePath) ~/.ssh/id_azure
