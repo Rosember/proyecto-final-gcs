@@ -12,11 +12,7 @@ pool:
 ## container: centos:7
 
 steps:
-  - task: DownloadSecureFile@1
-    name: caCertificate
-    displayName: "Instalando llave privada webserver"
-    inputs:
-      secureFile: "webserver-01_key.pem"
+  
   - script: |
         echo displayin system information
         cat /etc/os-release
