@@ -13,12 +13,16 @@ pool:
 
 steps:
   
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '8'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+
   - script: |
         echo displayin system information
         cat /etc/os-release
         echo -----------------------------=============== 
-        sudo apt-get install openjdk-11-jdk
-        echo ==========fin install java-================
         curl https://downloads.lightbend.com/scala/2.12.10/scala-2.12.10.rpm --output scala-2.12.10.rpm
         echo ==========fin download scala-2.12.10.rpm ==============
         sudo apt-get -y install scala-2.12.10.rpm
