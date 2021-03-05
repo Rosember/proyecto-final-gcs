@@ -56,7 +56,7 @@ steps:
       # sudo scp -i ~/.ssh/id_azure ./azure-pipelines.yaml azureuser@13.85.77.91:/home/azureuser/
       # ls -al
       # echo Compilar y correr las pruebas unitarias
-    displayName: "Commit Check"
+    displayName: "Compile Check"
 
     
   - task: CopyFilesOverSSH@0
@@ -73,7 +73,7 @@ steps:
       sshEndpoint: 'webserver-01'
       runOptions: 'commands'
       commands: |
-        echo ================desintalando================
+        echo ============desintalando=============
         sudo systemctl stop gcs-app
         sudo rpm -e gcs-app
         echo ===============intalando============
@@ -82,6 +82,8 @@ steps:
         sudo chgrp -R gcs-app /usr/share/gcs-app/
         sudo systemctl start gcs-app
         sudo systemctl status gcs-app
+        echo ===============intalando============
+        sbt test
       readyTimeout: '20000'
 
   - script: |
