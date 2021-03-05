@@ -82,10 +82,15 @@ steps:
         sudo chgrp -R gcs-app /usr/share/gcs-app/
         sudo systemctl start gcs-app
         sudo systemctl status gcs-app
-        echo ===============intalando============
-        sbt test
+        
       readyTimeout: '20000'
 
+  - script: |
+      echo Correr los test unitarios
+      echo ===============intalando============
+        sbt test
+    displayName: "Unit Tests"
+    
   - script: |
       echo Correr las pruebas de integración
     displayName: "Integration Tests"
