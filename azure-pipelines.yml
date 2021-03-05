@@ -73,10 +73,10 @@ steps:
       sshEndpoint: 'webserver-01'
       runOptions: 'commands'
       commands: |
-        echo ============desintalando=============
+        echo ============Remove app=============
         sudo systemctl stop gcs-app
         sudo rpm -e gcs-app
-        echo ===============intalando============
+        echo ===============Install app============
         sudo rpm -i gcs-app-2.8.x-1.noarch.rpm
         sudo chown -R gcs-app /usr/share/gcs-app/
         sudo chgrp -R gcs-app /usr/share/gcs-app/
@@ -87,10 +87,14 @@ steps:
 
   - script: |
       echo Correr los test unitarios
-      echo ===============intalando============
         sbt test
     displayName: "Unit Tests"
-    
+
   - script: |
       echo Correr las pruebas de integración
+      sudo apt install docker.io
+      sudo systemctl enable --now docker
+      sudo apt install -y postgresql-client
+      sudo systemctl start docker
+      sudo docker run -it -e POSTGRES_PASSWORD=gcs -e POSTGRES_USER=gcs -e POSTGRES_DB=gcs -p 127.0.0.1:5432:5432  postgres:9.5
     displayName: "Integration Tests"
